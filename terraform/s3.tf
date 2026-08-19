@@ -11,10 +11,6 @@ resource "aws_s3_bucket" "ml_platform" {
   }
 }
 
-resource "aws_s3_bucket_acl" "ml_platform_acl" {
-  bucket = aws_s3_bucket.ml_platform.id
-  acl    = "private"
-}
 
 # Separate resources to avoid deprecated nested blocks in aws_s3_bucket
 resource "aws_s3_bucket_versioning" "ml_platform" {
