@@ -1,0 +1,50 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AthenaQueryExecution",
+      "Effect": "Allow",
+      "Action": [
+        "athena:StartQueryExecution",
+        "athena:GetQueryExecution",
+        "athena:GetQueryResults",
+        "athena:StopQueryExecution"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "GlueCatalogRead",
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetDatabase",
+        "glue:GetDatabases",
+        "glue:GetTable",
+        "glue:GetTables"
+      ],
+      "Resource": [
+        "arn:aws:glue:us-east-1:940104439577:catalog",
+        "arn:aws:glue:us-east-1:940104439577:database/aws_ml_platform",
+        "arn:aws:glue:us-east-1:940104439577:table/aws_ml_platform/*"
+      ]
+    },
+    {
+      "Sid": "AthenaResultsS3",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::aws-ml-platform-bucket-c40fb655"
+    },
+    {
+      "Sid": "AthenaResultsObjects",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:AbortMultipartUpload"
+      ],
+      "Resource": "arn:aws:s3:::aws-ml-platform-bucket-c40fb655/athena-results/*"
+    }
+  ]
+}

@@ -13,3 +13,10 @@ __pycache__/
 venv/
 .DS_Store
 data_pipeline/hour.csv
+# ML model artifacts
+*.joblib
+*.pkl
+*.pickle
+
+# Local generated data
+data/
